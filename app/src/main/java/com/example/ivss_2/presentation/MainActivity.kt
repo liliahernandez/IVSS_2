@@ -24,20 +24,28 @@ class MainActivity : AppCompatActivity() {
         conectarButton = findViewById(R.id.conectarButton)
         motorLockButton = findViewById(R.id.motorLockButton)
 
-        // Estado inicial
-        statusText.text = "Celular no encontrado"
-        statusText.setTextColor(Color.RED)
+        // Verifica si viene de otra pantalla
+        conectado = intent.getBooleanExtra("conectado", false)
+
+        if (conectado) {
+            statusText.text = "Se conectó al celular ✅"
+            statusText.setTextColor(Color.parseColor("#008000")) // verde
+        } else {
+            statusText.text = "Celular no encontrado"
+            statusText.setTextColor(Color.RED)
+        }
 
         conectarButton.setOnClickListener {
             if (!conectado) {
+                conectado = true
                 statusText.text = "Se conectó al celular ✅"
                 statusText.setTextColor(Color.parseColor("#008000")) // verde
-                conectado = true
             }
         }
 
         motorLockButton.setOnClickListener {
             val intent = Intent(this, MotorLockActivity::class.java)
+            intent.putExtra("conectado", conectado)
             startActivity(intent)
         }
     }

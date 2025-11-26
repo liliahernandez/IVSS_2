@@ -1,92 +1,102 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="8dp">
+    android:orientation="vertical"
+    android:padding="12dp"
+    android:gravity="center_horizontal"
+    android:background="#FFFFFF">
 
+    <!-- Estado del motor -->
+    <TextView
+        android:id="@+id/motorStatus"
+        android:text="Motor DESBLOQUEADO"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="6dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <!-- Indicador circular -->
+    <ImageView
+        android:id="@+id/motorCircle"
+        android:src="@drawable/green_circle"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginBottom="10dp" />
+
+    <!-- Botón Bloquear -->
+    <Button
+        android:id="@+id/bloquearButton"
+        android:text="Bloquear motor"
+        android:textSize="11sp"
+        android:textStyle="bold"
+        android:backgroundTint="#D32F2F"
+        android:textColor="#FFFFFF"
+        android:minHeight="28dp"
+        android:minWidth="100dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="6dp" />
+
+    <!-- Botón Desbloquear -->
+    <Button
+        android:id="@+id/desbloquearButton"
+        android:text="Desbloquear motor"
+        android:textSize="11sp"
+        android:textStyle="bold"
+        android:backgroundTint="#388E3C"
+        android:textColor="#FFFFFF"
+        android:minHeight="28dp"
+        android:minWidth="100dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:visibility="gone" />
+
+    <!-- Pregunta -->
+    <TextView
+        android:id="@+id/preguntaTexto"
+        android:text="¿Deseas bloquear el motor?"
+        android:textSize="11sp"
+        android:textStyle="bold"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="6dp"
+        android:visibility="gone" />
+
+    <!-- Botones Sí y No -->
     <LinearLayout
-        android:orientation="vertical"
-        android:gravity="center_horizontal"
+        android:id="@+id/preguntaLayout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <TextView
-            android:id="@+id/motorStatus"
-            android:text="Motor DESBLOQUEADO"
-            android:textSize="14sp"
-            android:layout_marginBottom="8dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
-
-        <ImageView
-            android:id="@+id/motorCircle"
-            android:src="@drawable/green_circle"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:layout_marginBottom="12dp"/>
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:visibility="gone">
 
         <Button
-            android:id="@+id/bloquearButton"
-            android:text="Bloquear motor"
-            android:textSize="12sp"
+            android:id="@+id/confirmarSiButton"
+            android:text="Sí"
+            android:textSize="11sp"
+            android:textStyle="bold"
+            android:backgroundTint="#4CAF50"
+            android:textColor="#FFFFFF"
+            android:minHeight="28dp"
+            android:minWidth="70dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:minHeight="36dp"
-            android:minWidth="120dp"
-            android:layout_marginBottom="8dp"/>
+            android:layout_marginEnd="8dp" />
 
         <Button
-            android:id="@+id/desbloquearButton"
-            android:text="Desbloquear motor"
-            android:textSize="12sp"
+            android:id="@+id/confirmarNoButton"
+            android:text="No"
+            android:textSize="11sp"
+            android:textStyle="bold"
+            android:backgroundTint="#757575"
+            android:textColor="#FFFFFF"
+            android:minHeight="28dp"
+            android:minWidth="70dp"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:minHeight="36dp"
-            android:minWidth="120dp"
-            android:layout_marginBottom="12dp"
-            android:visibility="gone"/>
-
-        <LinearLayout
-            android:id="@+id/preguntaLayout"
-            android:orientation="vertical"
-            android:visibility="gone"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <TextView
-                android:id="@+id/preguntaTexto"
-                android:text="¿Deseas bloquear el motor?"
-                android:textSize="14sp"
-                android:layout_marginBottom="8dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
-
-            <LinearLayout
-                android:orientation="horizontal"
-                android:gravity="center"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="8dp">
-
-                <Button
-                    android:id="@+id/confirmarSiButton"
-                    android:text="Sí"
-                    android:textSize="12sp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:minHeight="36dp"
-                    android:minWidth="80dp"
-                    android:layout_marginEnd="12dp"/>
-
-                <Button
-                    android:id="@+id/confirmarNoButton"
-                    android:text="No"
-                    android:textSize="12sp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:minHeight="36dp"
-                    android:minWidth="80dp"/>
-            </LinearLayout>
-        </LinearLayout>
+            android:layout_height="wrap_content" />
     </LinearLayout>
-</ScrollView>
+</LinearLayout>
